@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100">
+    <header class="bg-gray-500 py-10">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-white text-2xl font-semibold"> <a href="/home"> Personal Budget and Expense Tracker </a> </h1>
+            <nav>
+                <ul class="flex space-x-10 text-white">
+                    <li><a href="/track" class="hover:text-gray-300">Track Income and Expenses</a></li>
+                    <li><a href="/logout" class="hover:text-gray-300">Sign Out</a></li>
+                    <li><a href="" class="hover:text-gray-300"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <div class="container mx-auto mt-20 mb-20">
+
+        <div class="w-3/4 mx-auto bg-white rounded-2xl shadow-md p-6">
+            <div class="container mx-auto mt-5 mb-5">
+                <div class="bg-white h-10 rounded-lg border-2 border-blue-500">
+                    <h2 class="text-2xl font-semibold text-center mb-4">Total Income: <span class="text-blue-500">${{ totalIncome }}</span> Total Exppenditure: <span class="text-blue-500">${{ totalExpenses }}</span> Wallet Balance: <span class="text-blue-500">${{ balance }}</span></h2>
+                </div>
+        </div>
+
+        <div class="mt-20">
+            <p class="font-bold text-lg text-center">Add Income</p>
+            <form action="/add_income" method="POST">
+                <div class="grid grid-cols-2 gap-5 p-5">
+                <input name="source" placeholder="Source" required class="w-full mt-1 px-4 py-2 border rounded-md">
+                <input type="number" name="amount" placeholder="Amount ($)" required class="w-full mt-1 px-4 py-2 border rounded-md">
+                </div>
+                <button type="submit" class="w-1/3 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors">Add Income Item</button>
+            </form>
+        </div>
+        <div class="mt-20">
+            <p class="font-bold text-lg text-center">Add Expenses</p>
+            <form action="/add_expense" method="POST">
+                <div class="grid grid-cols-3 gap-5 p-5">
+                <input name="description" placeholder="Description" required class="w-full mt-1 px-4 py-2 border rounded-md">
+                <select name="category" required class="w-full mt-1 px-4 py-2 border rounded-md">
+                    <option selected disabled>Choose Category</option>
+                    <option value="food">Food</option>
+                    <option value="bills">Bills</option>
+                    <option value="entertainment">Entertainment</option>
+                </select>
+                <input type="number" name="amount" placeholder="Amount ($)" required class="w-full mt-1 px-4 py-2 border rounded-md">
+                </div>
+                <button type="submit" class="w-1/3 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors">Add Expenditure Item</button>
+            </form>
+        </div>
+
+
+    </div>
+    </div>
+</body>
+<Script>
+    document.body.style.backgroundImage = "url('https://media.istockphoto.com/id/1255356293/photo/financial-advisor.jpg?s=1024x1024&w=is&k=20&c=n3mBMUfJ9XABo0CM7xzeAJDYaUMiERD35STR6eAU6nY=')";
+
+    progress_bar = document.querySelectorAll('.progress_bar');
+        progress_bar.forEach(i => {
+            const total = 10;
+            const achievedProgress = 7;
+            const progressWidth = (achievedProgress / total) * 100;
+            i.style.width = `${progressWidth}%`;
+        });
+
+
+    function addInputField() {
+        new_cat = document.createElement('input');
+        new_perc = document.createElement('input');
+        new_perc.type = "number";
+        new_cat.name = "category";
+        new_perc.name = "percentage"
+        new_cat.placeholder = "Budget Category"
+        new_perc.placeholder = "Percentage (%)"
+        new_cat.className = "w-full mt-1 px-4 py-2 border rounded-md"
+        new_perc.className = "w-full mt-1 px-4 py-2 border rounded-md"
+        document.getElementById("add_new").appendChild(new_cat);
+        document.getElementById("add_new").appendChild(new_perc);
+    }
+
+</Script>
+</html>
