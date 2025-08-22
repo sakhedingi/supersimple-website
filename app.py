@@ -147,6 +147,7 @@ def add_income():
 
         cursor.execute("INSERT INTO income (user_id, source, amount) VALUES (%s, %s, %s)", (user_id, source, amount))
         mysql.commit()
+
         cursor.close()
 
         return redirect(url_for('home'))
@@ -178,5 +179,5 @@ def logout():
     session.pop('username', None)
     return redirect(url_for('login'))
 
-if __name__ == '__main__':
-    app.run(host='127.0.0.1', debug=True, ssl_context=context)
+# if __name__ == '__main__':
+#     app.run(debug=True)
