@@ -147,7 +147,6 @@ def add_income():
 
         cursor.execute("INSERT INTO income (user_id, source, amount) VALUES (%s, %s, %s)", (user_id, source, amount))
         mysql.commit()
-
         cursor.close()
 
         return redirect(url_for('home'))
