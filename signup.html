@@ -24,10 +24,10 @@
         {% if error %}
         <p style="color: red;">{{ error}}</p>
         {% endif %}
-        <form method="POST">
+        <form method="POST" autocomplete="on">
             <div class="mb-4">
                 <label class="block text-gray-700">Username</label>
-                <input name="username" required class="w-full mt-1 px-4 py-2 border rounded-md">
+                <input name="username" required class="w-full mt-1 px-4 py-2 border rounded-md" autocomplete="off">
             </div>
             <div class="mb-4">
                 <label class="block text-gray-700">Cash</label>
@@ -40,11 +40,11 @@
             
             <div class="mb-4">
                 <label class="block text-gray-700">Password</label>
-                <input type="password" name="password" required class="w-full mt-1 px-4 py-2 border rounded-md">
+                <input type="password" name="password" required class="w-full mt-1 px-4 py-2 border rounded-md" autocomplete="off">
             </div>
             <div class="mb-4">
                 <label class="block text-gray-700">Confirm Password</label>
-                <input type="password" name="confirm_password" required class="w-full mt-1 px-4 py-2 border rounded-md">
+                <input type="password" name="confirm_password" required class="w-full mt-1 px-4 py-2 border rounded-md" autocomplete="off">
             </div>
             <button type="submit" class="w-full bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors">Sign Up</button>
         </form>
